@@ -13,6 +13,7 @@ return {
 
             telescope.setup({
                 defaults = {
+                    path_display = { "smart" },
                     mappings = {
                         i = {
                             ["<esc>"] = actions.close,
@@ -26,15 +27,9 @@ return {
             telescope.load_extension("fzf")
         end,
         keys = {
-            { "<leader>sf", "<cmd>Telescope find_files hidden=true<cr>", desc = "Search Files" },
-            { "<leader>so", "<cmd>Telescope oldfiles<cr>",               desc = "Search Recent Files" },
-            {
-                "<leader>sg",
-                function()
-                    require('telescope.builtin').grep_string({ search = vim.fn.input("Grep: ") })
-                end,
-                desc = "String Grep"
-            },
+            { "<leader>sf", "<cmd>Telescope find_files<cr>", desc = "Search Files" },
+            { "<leader>so", "<cmd>Telescope oldfiles<cr>",   desc = "Search Recent Files" },
+            { "<leader>sg", "<cmd>Telescope live_grep<cr>",  desc = "String Grep" },
         }
     }
 }
