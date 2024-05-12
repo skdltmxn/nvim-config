@@ -10,11 +10,17 @@ return {
 	},
 	config = function()
 		local cmp = require("cmp")
+		local luasnip = require("luasnip")
 		local lspkind = require("lspkind")
 
 		cmp.setup({
 			completion = {
 				completeopt = "menu,menuone,preview,noselect",
+			},
+			snippet = { -- configure how nvim-cmp interacts with snippet engine
+				expand = function(args)
+					luasnip.lsp_expand(args.body)
+				end,
 			},
 			sources = {
 				{ name = "copilot" },
