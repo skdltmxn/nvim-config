@@ -33,7 +33,7 @@ return {
 
 		local ks = vim.keymap.set
 
-		ks("n", "<leader>ns", function()
+		ks("n", "<leader>na", function()
 			harpoon:list():add()
 		end)
 		ks("n", "<leader>nd", function()

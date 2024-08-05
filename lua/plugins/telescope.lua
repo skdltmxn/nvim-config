@@ -22,6 +22,13 @@ return {
 						},
 					},
 				},
+				pickers = {
+					live_grep = {
+						additional_args = function(_)
+							return { "--no-ignore" }
+						end,
+					},
+				},
 			})
 
 			telescope.load_extension("fzf")
